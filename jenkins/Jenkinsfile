@@ -1,4 +1,4 @@
-node ('simple'){
+node {
 
         stage('Build') {
             steps {
