@@ -1,13 +1,16 @@
 node('master') {
-  def workspace = pwd()
+  //def workspace = pwd()
 
-  stage 'Git pull'
+  stage ('Git pull'){
   git branch: 'master', 
   credentialsId: '3eb62ae7-77d5-4fbf-bf04-589646942bb9', 
   url: 'https://github.com/lexusdrivers/simple-java-maven-app.git'
+  }
 
-  stage 'Builing'
+  stage ('Building'){
   def mvnHome = tool name: 'maven 3.3.9', type: 'hudson.tasks.Maven$MavenInstallation'
-  sh "cd ${workspace}/simpleJMA/; ${mvnHome}/bin/mvn install -Pdevelopment"
-  sh "cd ${workspace}"
+  sh "${mvnHome}/bin/mvn install -Pdevelopment"
+  //sh "cd ${workspace}"
+  }
 }
+
