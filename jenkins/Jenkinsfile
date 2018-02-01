@@ -3,7 +3,7 @@ node {
         stage('Build') {
             			
             	def mvnHome = tool name: 'maven 3.3.9', type: 'hudson.tasks.Maven$MavenInstallation'
-  				sh "${mvnHome}/bin/mvn install -Pdevelopment"
+  				sh "${mvnHome}bin/mvn install -Pdevelopment"
             	sh 'mvn -B -DskipTests clean package'            
         }
         
