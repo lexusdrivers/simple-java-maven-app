@@ -1,7 +1,8 @@
 node {
 
         stage('Build') {
-            
+            			
+            	cd /simple-java-maven-app
                 sh 'mvn -B -DskipTests clean package'            
         }
         
